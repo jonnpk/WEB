@@ -11,10 +11,10 @@
     <script>
         const count = document.querySelector('.count');
         
-        for(let i = 0; i <= 10; i++){
+        for(let i = 0; i <= 1000000; i++){
             setTimeout(()=>{
                 count.innerText = i
-            },i * 1000);
+            },i * 0.01);
         }
             
     </script>
