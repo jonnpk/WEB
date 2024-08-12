@@ -57,13 +57,16 @@
 
     <script>
         const dots = document.querySelector('.dots');
+        const graph = document.querySelector('.graph');
+        const graphWidth = graph.clientWidth;
         
         for(let i = 0; i < 100; i++){
             const dot = document.createElement('div');
             dot.classList.add('dot')
             dots.appendChild(dot);
 
-            // dot[i].style.transform = `translateX(${i / 300})`
+
+            // dots.children[i].style.transform = `translateX(${i / graph.clientWidth})`
         }
 
 
