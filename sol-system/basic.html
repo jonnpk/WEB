@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #333;
+        }
+
+        .orb{
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+        }
+
+        .sun{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .vinus{
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            animation: revolution 2s infinite linear;
+        }
+
+        @keyframes revolution{
+            0%{
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sun orb"></div>
+    <div class="vinus orb"></div>
+</body>
+</html>

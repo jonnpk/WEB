@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .graphs{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: solid #222;
+            border-width: 0 0 1px 1px;
+            margin: 100px;
+        }
+
+        .btn-container{
+            margin: 100px;
+        }
+
+        .time{
+            position: absolute;
+            right: 0px;
+            top: 100%;
+        }
+
+        .value{
+            position: absolute;
+            right: calc(100% + 5px);
+        }
+
+        .dot{
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            transform: translate(-50%,50%);
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .dot.hide{
+            opacity: 0;
+        }
+
+        .control-graph{
+            border: none;
+            padding: 8px;
+            color: #222;
+            background-color: #d1d1d1;
+            border-radius: 4px;
+            margin: 4px;
+        }
+
+        .control-graph.hide{
+            background-color: #e7e7e7;
+            color: #5e5e5e;
+        }
+    </style>
+</head>
+<body>
+    <div class="graphs">
+        <p class="time">t</p>
+        <p class="value">v</p>
+    </div>
+
+    <div class="btn-container"></div>
+
+    <script>
+        const graphs = document.querySelector('.graphs');
+        const btnContainer = document.querySelector('.btn-container');
+        const dotCount = 2000;
+        
+        let index = 0;
+        
+        makeGraph(easeOutBounce,'red')
+        makeGraph(easeInBounce,'blue')
+        makeGraph(easeInOutCirc,'green')
+
+        
+        function makeGraph(func,color){
+            const graph = document.createElement('div');
+            graph.classList.add('graph');
+
+            for(let i = 0; i <= dotCount; i++){
+                const percent = 1/dotCount * i;
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                graph.appendChild(dot);
+                
+                dot.style.backgroundColor = color;
+                dot.style.left = `${percent*100}%`
+                dot.style.bottom = `${func(percent)*100}%`
+            }
+            graphs.appendChild(graph)
+
+            const btn = document.createElement('button');
+            btn.classList.add('control-graph');
+            btn.innerText = `graph ${++index}`
+
+            btn.addEventListener('click', ()=>{
+                for(let i = 0; i < graph.childElementCount; i++){
+                    graph.children[i].classList.toggle('hide')
+                }
+                btn.classList.toggle('hide');
+            })
+            btnContainer.appendChild(btn);
+        }
+
+
+        function easeOutBounce(x) {
+            const n1 = 7.5625;
+            const d1 = 2.75;
+
+            if (x < 1 / d1) {
+                return n1 * x * x;
+            } else if (x < 2 / d1) {
+                return n1 * (x -= 1.5 / d1) * x + 0.75;
+            } else if (x < 2.5 / d1) {
+                return n1 * (x -= 2.25 / d1) * x + 0.9375;
+            } else {
+                return n1 * (x -= 2.625 / d1) * x + 0.984375;
+            }
+        }
+
+        function easeInBounce(x) {
+            return 1 - easeOutBounce(1 - x);
+        }
+
+        function easeInOutCirc(x) {
+            return x < 0.5
+            ? (1 - Math.sqrt(1 - Math.pow(2 * x, 2))) / 2
+            : (Math.sqrt(1 - Math.pow(-2 * x + 2, 2)) + 1) / 2;
+        }
+
+        
+
+    </script>
+</body>
+</html>
