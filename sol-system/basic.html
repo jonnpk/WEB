@@ -28,13 +28,6 @@
             background-color: red;
         }
 
-        .vinus{
-            width: 20px;
-            height: 20px;
-            background-color: yellow;
-            animation: revolution 2s infinite linear;
-        }
-
         @keyframes revolution{
             0%{
                 transform: translate(-50%,-50%) rotate(0deg);
@@ -43,10 +36,58 @@
                 transform: translate(-50%,-50%) rotate(360deg);
             }
         }
+
+        .cotat{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            border: 1px solid white;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            /* transform: translate(-50%,-50%); */
+            animation: revolution 40s infinite linear;
+        }
+
+        .earth{
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            left: 50%;
+            top: 0;
+        }
+
+        .m-cotat{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            border: 1px solid white;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            animation: revolution 5s infinite linear;
+        }
+
+        .moon{
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            left: 50%;
+            top: 0;
+        }
     </style>
 </head>
 <body>
     <div class="sun orb"></div>
-    <div class="vinus orb"></div>
+  
+    <div class="cotat">
+        <div class="earth orb">
+            <div class="m-cotat">
+                <div class="moon orb"></div>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
 </html>
