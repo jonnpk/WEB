@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+
+        .content{
+            width: 100px;
+            height: 100px;
+            margin-top: 2000px;
+            background-color: aqua;
+            opacity: 0;
+            transform: translate(500px);
+            transition: 1s;
+        }
+
+        .content.active{
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+
+    <script>
+        const content = document.querySelector('.content');
+
+        window.addEventListener('scroll', (e)=>{
+            // console.log('스크롤되었다')
+            // console.log(e)
+            // console.log(window.scrollY)
+            const pos = content.getBoundingClientRect()
+
+            if(pos.top <= window.innerHeight - pos.height){
+                content.classList.add('active');
+            }
+
+            console.log(pos.top)
+        })
+    </script>
+</body>
+</html>

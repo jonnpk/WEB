@@ -12,6 +12,7 @@
 
         body{
             background-color: #333;
+            overflow: hidden;
         }
 
         .orb{
@@ -19,13 +20,60 @@
             border-radius: 50%;
             transform: translate(-50%,-50%);
             left: 50%;
-            top: 50%;
+            top: 0;
+            aspect-ratio: 1;
         }
 
-        .sun{
+        .cotat{
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            left: 50%;
+            top: 0;
+            aspect-ratio: 1;
+            animation: revolution 40s infinite linear;
+            /* transform-origin: 0% 0%; */
+        }
+
+        .solar{
+            width: 0;
+            height: 0;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .solar > .orb{
             width: 200px;
-            height: 200px;
-            background-color: red;
+            background-color: rgb(255, 60, 0);
+        }
+
+        .mercury{
+            width: 300px;
+        }
+
+        .mercury > .orb{
+            width: 10px;
+            background-color: yellow;
+        }
+
+        .earth{
+            width: 440px;
+        }
+
+        .earth > .orb{
+            width: 20px;
+            background-color: blue;
+        }
+
+        .moon{
+            width: 40px;
+        }
+
+        .moon > .orb{
+            width: 5px;
+            background-color: white;
         }
 
         @keyframes revolution{
@@ -36,58 +84,31 @@
                 transform: translate(-50%,-50%) rotate(360deg);
             }
         }
-
-        .cotat{
-            width: 400px;
-            height: 400px;
-            position: absolute;
-            border: 1px solid white;
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            /* transform: translate(-50%,-50%); */
-            animation: revolution 40s infinite linear;
-        }
-
-        .earth{
-            width: 20px;
-            height: 20px;
-            background-color: blue;
-            left: 50%;
-            top: 0;
-        }
-
-        .m-cotat{
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            border: 1px solid white;
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            animation: revolution 5s infinite linear;
-        }
-
-        .moon{
-            width: 5px;
-            height: 5px;
-            background-color: white;
-            left: 50%;
-            top: 0;
-        }
     </style>
 </head>
 <body>
-    <div class="sun orb"></div>
-  
-    <div class="cotat">
-        <div class="earth orb">
-            <div class="m-cotat">
-                <div class="moon orb"></div>
+    <div class="solar">
+        <div class="orb"></div>
+
+        <div class="mercury cotat" data-revolution="88">
+            <div class="orb"></div>
+        </div>
+        
+        <div class="earth cotat" data-revolution="365">
+            <div class="orb"></div>
+            <div class="moon cotat" data-revolution="30">
+                <div class="orb"></div>
             </div>
         </div>
     </div>
+        
+    <script>
+        const cotats = document.getElementsByClassName('cotat');
+        const playRate = 5;
 
-    
+        for(let i = 0; i < cotats.length; i++){
+            cotats[i].style.animationDuration = `${Number(cotats[i].dataset.revolution)/playRate}s`
+        }
+    </script>
 </body>
 </html>
