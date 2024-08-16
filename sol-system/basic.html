@@ -45,36 +45,119 @@
         }
 
         .solar > .orb{
-            width: 200px;
+            width: 90px;
             background-color: rgb(255, 60, 0);
+            position: relative;
+            box-shadow: 0 0 30px 10px rgba(255, 60, 0, 0.5);
+        }
+
+        .solar > .orb::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95px;
+            height: 95px;
+            background: radial-gradient(circle, rgba(255, 106, 0, 0.3) 0%, rgba(255, 179, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
         }
 
         .mercury{
-            width: 300px;
+            width: 115px;
         }
 
         .mercury > .orb{
-            width: 10px;
+            width: 2px;
             background-color: yellow;
         }
 
+        .venus{
+            width: 135px;
+        }
+
+        .venus > .orb{
+            width: 3px;
+            background-color: rgb(187, 145, 18);
+        }
+
         .earth{
-            width: 440px;
+            width: 160px;
         }
 
         .earth > .orb{
-            width: 20px;
+            width: 5px;
             background-color: blue;
         }
 
         .moon{
-            width: 40px;
+            width: 11px;
         }
 
         .moon > .orb{
-            width: 5px;
+            width: 1.5px;
             background-color: white;
         }
+
+        .mars{
+            width: 190px;
+        }
+
+        .mars > .orb{
+            width: 2.5px;
+            background-color: rgb(213, 32, 0);
+        }
+
+        .jupiter{
+            width: 250px;
+        }
+
+        .jupiter > .orb{
+            width: 40px;
+            background-color: rgb(196, 196, 176);
+        }
+
+        .saturn{
+            width: 340px;
+        }
+
+        .saturn > .orb{
+            width: 30px;
+            background-color: rgb(204, 163, 0);
+        }
+
+        .saturn > .orb::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 50px;
+            height: 10px;
+            border: 5px solid rgba(179, 174, 153, 0.348);
+            border-radius: 100%;
+        }
+
+        .uranus{
+            width: 410px;
+        }
+
+        .uranus > .orb{
+            width: 20px;
+            background-color: rgb(0, 152, 157);
+        }
+
+        .neptunus{
+            width: 500px;
+        }
+
+        .neptunus > .orb{
+            width: 18px;
+            background-color: rgb(122, 200, 183);
+        }
+
+
 
         @keyframes revolution{
             0%{
@@ -93,6 +176,10 @@
         <div class="mercury cotat" data-revolution="88">
             <div class="orb"></div>
         </div>
+
+        <div class="venus cotat" data-revolution="224">
+            <div class="orb"></div>
+        </div>
         
         <div class="earth cotat" data-revolution="365">
             <div class="orb"></div>
@@ -100,11 +187,31 @@
                 <div class="orb"></div>
             </div>
         </div>
+
+        <div class="mars cotat" data-revolution="687">
+            <div class="orb"></div>
+        </div>
+
+        <div class="jupiter cotat" data-revolution="4333">
+            <div class="orb"></div>
+        </div>
+
+        <div class="saturn cotat" data-revolution="10759">
+            <div class="orb"></div>
+        </div>
+
+        <div class="uranus cotat" data-revolution="30688">
+            <div class="orb"></div>
+        </div>
+
+        <div class="neptunus cotat" data-revolution="60223">
+            <div class="orb"></div>
+        </div>
     </div>
         
     <script>
         const cotats = document.getElementsByClassName('cotat');
-        const playRate = 5;
+        const playRate = 40;
 
         for(let i = 0; i < cotats.length; i++){
             cotats[i].style.animationDuration = `${Number(cotats[i].dataset.revolution)/playRate}s`
