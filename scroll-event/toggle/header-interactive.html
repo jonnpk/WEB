@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 5000px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            background-color: #00000080;
+            transition: 0.3s;
+        }
+
+        header.hide {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+
+        header.scrolled {
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+
+    <script>
+        const header = document.querySelector('header');
+        const ratio = 300;
+
+        let preValue = window.scrollY
+        window.addEventListener('scroll',()=>{
+
+            if(window.scrollY > preValue && window.scrollY > ratio){
+                header.classList.add('hide')
+            }else {
+                header.classList.remove('hide')
+            }
+
+
+            preValue = window.scrollY
+
+
+            if(window.scrollY > ratio) {
+                header.classList.add('scrolled')
+            }else {
+                header.classList.remove('scrolled')
+            }
+        })
+    </script>
+</body>
+</html>

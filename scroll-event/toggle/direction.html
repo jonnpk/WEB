@@ -12,16 +12,16 @@
 </head>
 <body>
     <script>
-        let prevValue = window.scrollY
+        let preValue = window.scrollY
 
         window.addEventListener('scroll', ()=>{
-            if(window.scrollY > prevValue){
+            if(window.scrollY > preValue){
                 console.log('아래');
             }else{
                 console.log('위');
             }
 
-            prevValue = window.scrollY
+            preValue = window.scrollY
         })
     </script>
 </body>
