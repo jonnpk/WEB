@@ -40,19 +40,20 @@
         window.addEventListener('scroll',()=>{
             const targetPos = target.getBoundingClientRect();
             
-            const distance = (targetPos.bottom - window.innerHeight)*-1
-            const maxDistance = targetPos.height + window.innerHeight;
+            const distance = targetPos.top*-1
+            const maxDistance = targetPos.height - window.innerHeight;
 
             const ratio = clamp(distance/maxDistance,0,1)
 
             progress.innerText = `${parseInt(ratio*100)}%`
+
+            console.log(targetPos.top)
         })
 
         
         function clamp(value,min,max){
             return Math.max(Math.min(value,max),min)
         }
-
         
     </script>
 </body>
