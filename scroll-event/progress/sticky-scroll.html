@@ -78,6 +78,9 @@
                     <li class="content"></li>
                     <li class="content"></li>
                     <li class="content"></li>
+                    <li class="content"></li>
+                    <li class="content"></li>
+                    <li class="content"></li>
                 </ul>
             </div>
         </div>
@@ -85,6 +88,9 @@
     <section class="space"></section>
 
     <script>
+        const applyPos = (pos) => {
+            horizon.style.transform = `translateX(${pos}px)`
+        }
 
         const moveHorizonScroll =()=>{
 
@@ -100,24 +106,26 @@
                 targetPos = pos.top;
             }
 
-            horizon.style.transform = `translateX(${targetPos}px)`
+            if(window.innerWidth < breakPoint){
+                applyPos(0)
+            }else{
+                applyPos(targetPos)
             }
+        }
 
-
+        const breakPoint = 1000;
         const scrollContainer = document.getElementById('target');
         const scrollbarWidth = window.innerWidth - document.body.clientWidth
         const horizon = document.querySelector('.horizon');
 
+        moveHorizonScroll()
+
         scrollContainer.style.height = `${horizon.getBoundingClientRect().width - window.innerWidth + window.innerHeight + scrollbarWidth}px`;
 
+        window.addEventListener('scroll',moveHorizonScroll);
         window.addEventListener('resize',()=>{
             scrollContainer.style.height = `${horizon.getBoundingClientRect().width - window.innerWidth + window.innerHeight + scrollbarWidth}px`;
-
-            window.removeEventListener('scroll',moveHorizonScroll)
-            
-            if(window.innerWidth > 1000) {
-                window.addEventListener('scroll',moveHorizonScroll)
-            }
+            moveHorizonScroll()
         })
 
     </script>
