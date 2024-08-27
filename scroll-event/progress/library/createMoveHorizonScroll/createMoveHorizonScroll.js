@@ -65,16 +65,17 @@ function createMoveHorizonScroll(target,breakPoint) {
         horizonSticky.style.top = `0px`
 
         moveContainer.style.height = '100%'
-        moveHorizonScroll()
+        
         setCSS();
+        moveHorizonScroll()
     }
 
 
     init();
     window.addEventListener('scroll',moveHorizonScroll)
     window.addEventListener('resize',()=>{
-        moveHorizonScroll()
         setCSS();
+        moveHorizonScroll()
     })
 
 }
