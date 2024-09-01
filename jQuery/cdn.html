@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <style>
+        .text{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p class="text">안녕하세요</p>
+    <button class="continue"></button>
+
+    <script>
+        // $('.continue').html('next Step...')
+      
+        // document.querySelector('.continue').innerHTML = 'next step...'
+
+        // $('.continue').on('click',()=>{
+        //     // $('.text').show()
+        //     $('.text').css('display','flex');
+        // })
+
+        const text = document.querySelector('.text');
+        const btn = document.querySelector('.continue');
+
+        btn.innerText = 'next step'
+
+        btn.addEventListener('click',()=>{
+            text.style.display = 'flex';
+        })
+    </script>
+</body>
+</html>
