@@ -10,21 +10,18 @@
 
     <script src="makeCountUp.js"></script>
     <script>
-<<<<<<< HEAD
         const count = document.querySelector('.count')
 
         makeCountUp(count, 100000, 2, easeInOutCubic)
 
         function easeInOutCubic(x) {
         return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-=======
         const count = document.querySelector('.count');
 
         makeCountUp(count,100000,2)
 
         function easeInExpo(x) {
             return x === 0 ? 0 : Math.pow(2, 10 * x - 10);
->>>>>>> d3592b365c39e4b6f61667eb81eb902fada9c432
         }
     </script>
 </body>

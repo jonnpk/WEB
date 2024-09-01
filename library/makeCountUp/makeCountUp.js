@@ -3,7 +3,6 @@ function makeCountUp(target, goal, duration, accFunc = 'ease', frame = 60){
 
     let progressFunc;
 
-<<<<<<< HEAD
     try{
         if(accFunc === 'ease'){
             progressFunc = easeInOutCubic;
@@ -25,7 +24,6 @@ function makeCountUp(target, goal, duration, accFunc = 'ease', frame = 60){
         }; 
 
     } catch (e){
-=======
     try {
         if(accFunc === 'ease') {
             progressFunc = easeInOutCubic;
@@ -47,14 +45,12 @@ function makeCountUp(target, goal, duration, accFunc = 'ease', frame = 60){
     }
 
     } catch (e) {
->>>>>>> d3592b365c39e4b6f61667eb81eb902fada9c432
         console.error(e);
     }
 
     function easeInOutCubic(x) {
         return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
     }
-<<<<<<< HEAD
 
     function easeInOutBack(x) {
         const c1 = 1.70158;
@@ -68,6 +64,4 @@ function makeCountUp(target, goal, duration, accFunc = 'ease', frame = 60){
     function easeInExpo(x) {
         return x === 0 ? 0 : Math.pow(2, 10 * x - 10);
     }
-=======
->>>>>>> d3592b365c39e4b6f61667eb81eb902fada9c432
 }
