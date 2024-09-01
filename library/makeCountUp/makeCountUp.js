@@ -64,4 +64,5 @@ function makeCountUp(target, goal, duration, accFunc = 'ease', frame = 60){
     function easeInExpo(x) {
         return x === 0 ? 0 : Math.pow(2, 10 * x - 10);
     }
+    }
 }
