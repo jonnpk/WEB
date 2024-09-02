@@ -1,23 +1,23 @@
 const modal = document.createElement('div');
-madal.classList.add('modal');
+modal.classList.add('modal');
 document.body.appendChild(modal);
 
 const modalWindow = document.createElement('div');
 modalWindow.classList.add('modal-window');
-document.modal.appendChild(modalWindow);
+modal.appendChild(modalWindow);
 
 const modalTitle = document.createElement('h2');
 modalTitle.classList.add('modal-title');
-document.modalWindow.appendChild(modalTitle);
+modalWindow.appendChild(modalTitle);
 
 const modalText = document.createElement('p');
 modalText.classList.add('modal-text');
-document.modalWindow.appendChild(modalText);
+modalWindow.appendChild(modalText);
 
 const closeBtn = document.createElement('button');
 closeBtn.classList.add('modal-close');
 closeBtn.innerText = '확 인'
-document.modalWindow.appendChild(closeBtn);
+modalWindow.appendChild(closeBtn);
 
 
 closeBtn.addEventListener('click',()=>{
