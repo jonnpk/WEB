@@ -28,3 +28,14 @@
 
 6. 브라우저에서 확인:
    개발 서버가 실행되면 기본적으로 웹 브라우저가 자동으로 열리고 앱이 실행됩니다. 주소 표시줄에 "http://localhost:3000" 또는 다른 포트 번호가 표시됩니다.
+
+
+**JSX 태그 자동완성 적용하기:
+   Ctrl + Shift + P -> setting.json 입력
+   ; "emmet.syntaxProfiles": {
+   ;   "javascript": "jsx" 
+   ; },
+   ; "emmet.includeLanguages": {
+   ;  "javascript": "html"
+   ; }
+   위 코드 복붙
